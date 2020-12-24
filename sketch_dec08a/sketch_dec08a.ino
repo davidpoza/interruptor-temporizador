@@ -74,7 +74,10 @@ void startTimer() {
   delay(500);
   digitalWrite(A1, LOW);
   digitalWrite(PIN_RELE, HIGH);
-  delay(counter*60*1000);
+  for (int i=0;i<60;i++) { //since delay is limited to 32,767
+    delay(counter*1000);
+  }  
+  Serial.println("espera finalizada");
   digitalWrite(A1, HIGH);
   delay(500);
   digitalWrite(A1, LOW);
